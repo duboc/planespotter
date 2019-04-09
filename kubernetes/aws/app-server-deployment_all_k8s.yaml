@@ -2,6 +2,7 @@ apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
   name: planespotter-app
+  namespace: planespotter
   labels:
     app: planespotter
     tier: app-tier
@@ -33,9 +34,10 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: planespotter-app-cfg
+  namespace: planespotter
 data:
   config.cfg: |
-    DATABASE_URL = 'mysql.yves.local'
+    DATABASE_URL = 'mysql'
     DATABASE_USER = 'planespotter'
     DATABASE_PWD = 'VMware1!'
     DATABASE = 'planespotter'
@@ -47,6 +49,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: planespotter-svc
+  namespace: planespotter
   labels:
     app: planespotter-svc
 spec:

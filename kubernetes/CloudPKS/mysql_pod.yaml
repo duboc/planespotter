@@ -10,6 +10,7 @@ spec:
   ports:
   - port: 3306
     name: mysql
+    protocol: TCP 
   clusterIP: None
   selector:
     app: mysql

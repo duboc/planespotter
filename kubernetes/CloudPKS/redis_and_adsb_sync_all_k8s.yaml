@@ -29,6 +29,7 @@ metadata:
 spec:
   ports:
   - port: 6379
+    name: redis
   selector:
     app: redis-server
     tier: backend

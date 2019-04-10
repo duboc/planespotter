@@ -38,9 +38,23 @@ metadata:
   labels:
     app: planespotter-frontend
 spec:
-  type: LoadBalancer
   ports:
     # the port that this service should serve on
     - port: 80
+      name: http 
   selector:
     app: planespotter-frontend
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: planespotter-frontend
+  namespace: planespotter
+spec:
+  rules:
+  - host: dubokluster-prod-391aee9e-5b33-11e9-bfbb-120e90a3f38c.9d5d624d-3585-4b91-bec0-11c8d5f28435.vke-user.com 
+    http:
+      paths:
+      - backend:
+          serviceName: planespotter-frontend
+          servicePort: 80

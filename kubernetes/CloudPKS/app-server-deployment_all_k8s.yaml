@@ -56,6 +56,7 @@ spec:
   ports:
     # the port that this service should serve on
     - port: 80
+      name: http 
   selector:
     app: planespotter-app
 
